@@ -12,6 +12,18 @@ proyectos más orientados a producto:
 [DentalRaúl](https://github.com/raulrasty/dentalraul) y
 [PokéRasty](https://github.com/raulrasty/Pokerasty-).
 
+
+## Capturas de pantalla
+
+**Documentación interactiva (Swagger UI)**
+![Swagger UI - vista general](img/taskify_swagger_overview.png)
+
+**Endpoint en acción (POST /api/tasks)**
+![Swagger UI - POST en acción](img/taskify_swagger_post.png)
+
+**Pipeline de CI en GitHub Actions**
+![Pipeline de CI](img/taskify_ci_pipeline.png)
+
 ## Características
 
 - CRUD completo de tareas (crear, listar, obtener, actualizar, eliminar)
