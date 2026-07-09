@@ -16,6 +16,7 @@ proyectos más orientados a producto:
 
 - CRUD completo de tareas (crear, listar, obtener, actualizar, eliminar)
 - Validación de datos con [Zod](https://zod.dev) en cada endpoint de escritura
+- Documentación interactiva de la API con Swagger/OpenAPI en `/api-docs`
 - Arquitectura en capas con inyección de dependencias: el repositorio de
   datos es intercambiable entre una implementación en memoria (tests) y
   PostgreSQL (producción), sin tocar la lógica de negocio
@@ -36,6 +37,17 @@ proyectos más orientados a producto:
 | Testing         | Jest + Supertest              |
 | Contenedores    | Docker + docker-compose       |
 | CI/CD           | GitHub Actions                |
+| Documentación   | Swagger UI + OpenAPI 3.0     |
+
+## Documentación interactiva
+
+Con el servidor en marcha, la documentación completa de la API (generada a
+partir de la especificación OpenAPI en `docs/openapi.yaml`) está disponible en:
+
+http://localhost:3000/api-docs
+
+Desde ahí puedes explorar cada endpoint y probarlo directamente en el
+navegador, sin necesidad de `curl` ni Postman.
 
 ## Endpoints
 

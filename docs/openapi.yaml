@@ -1,0 +1,121 @@
+openapi: 3.0.3
+info:
+  title: Taskify API
+  description: API REST de gestión de tareas construida con TypeScript, Express y PostgreSQL.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/tasks:
+    get:
+      summary: Listar todas las tareas
+      responses:
+        '200':
+          description: Lista de tareas
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Task'
+    post:
+      summary: Crear una tarea
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+              properties:
+                title:
+                  type: string
+                  example: Escribir README
+      responses:
+        '201':
+          description: Tarea creada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Task'
+        '400':
+          description: Datos inválidos
+
+  /api/tasks/{id}:
+    get:
+      summary: Obtener una tarea por id
+      parameters:
+        - $ref: '#/components/parameters/TaskId'
+      responses:
+        '200':
+          description: Tarea encontrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Task'
+        '404':
+          description: Tarea no encontrada
+    put:
+      summary: Actualizar una tarea
+      parameters:
+        - $ref: '#/components/parameters/TaskId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                status:
+                  type: string
+                  enum: [pending, in_progress, done]
+      responses:
+        '200':
+          description: Tarea actualizada
+        '404':
+          description: Tarea no encontrada
+    delete:
+      summary: Eliminar una tarea
+      parameters:
+        - $ref: '#/components/parameters/TaskId'
+      responses:
+        '204':
+          description: Tarea eliminada
+        '404':
+          description: Tarea no encontrada
+
+components:
+  parameters:
+    TaskId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Identificador de la tarea (UUID)
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 2d694073-edfa-42cb-bb31-15b72ca889a2
+        title:
+          type: string
+          example: Escribir README
+        status:
+          type: string
+          enum: [pending, in_progress, done]
+          example: pending
