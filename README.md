@@ -5,8 +5,6 @@
 
 API REST de gestión de tareas construida con **TypeScript, Express y PostgreSQL**.
 
-API REST de gestión de tareas construida con **TypeScript, Express y PostgreSQL**.
-
 Proyecto de portfolio centrado deliberadamente en buenas prácticas de
 ingeniería (testing, contenedores y CI/CD), como complemento a mis otros
 proyectos más orientados a producto:
